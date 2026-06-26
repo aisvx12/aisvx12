@@ -66,11 +66,11 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translate(-50%, 40px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translate(-50%, 0);
             }
         }
 
@@ -85,59 +85,68 @@
             100% { box-shadow: 0 0 15px rgba(0, 210, 255, 0.2); }
         }
 
-        /* Floating Animated Navigation Header */
+        /* Fully Centered Futuristic Navigation Header */
         header {
             position: fixed;
             top: 24px;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, 0);
             width: max-content;
-            background: rgba(5, 8, 17, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 10px 32px;
-            border-radius: 100px;
+            background: rgba(5, 8, 17, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            /* Angular, aggressive stylized frame borders */
+            border: 1px solid rgba(0, 210, 255, 0.15);
+            border-radius: 16px;
+            padding: 8px 24px;
             z-index: 100;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7), inset 0 0 12px rgba(0, 210, 255, 0.05);
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 36px;
+            gap: 28px;
             align-items: center;
         }
 
+        /* Text Effects & Custom Hover glow mechanics */
         nav ul li a {
             color: var(--text-muted);
             text-decoration: none;
             font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
+            letter-spacing: 0.08em;
+            position: relative;
+            padding: 8px 12px;
+            transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.3s ease;
         }
 
         nav ul li a:hover, nav ul li a.active {
-            color: var(--text-main);
-            text-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
+            color: var(--accent-cyan);
+            text-shadow: 0 0 12px rgba(0, 210, 255, 0.6), 0 0 24px rgba(0, 210, 255, 0.2);
         }
 
-        /* Premium Micro-Interactive Buttons */
+        /* Micro-Interactive Cyber Buttons */
         .hire-btn {
             background: linear-gradient(135deg, var(--accent-electric), var(--accent-cyan));
             color: #ffffff !important;
-            padding: 10px 24px;
-            border-radius: 100px;
+            padding: 8px 20px !important;
+            border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease !important;
         }
 
         .hire-btn:hover {
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 82, 255, 0.4);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.4) !important;
+            text-shadow: none !important;
+            color: #ffffff !important;
         }
 
         /* Hero Layout Grid */
@@ -153,7 +162,7 @@
         }
 
         .hero-text {
-            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+            animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
             animation-delay: 0.2s;
         }
 
@@ -201,6 +210,12 @@
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-electric));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            transition: text-shadow 0.3s ease;
+        }
+
+        /* Hovering effect for title texts */
+        .hero h1:hover .gradient-text {
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
         }
 
         .hero p {
@@ -312,6 +327,11 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: -0.03em;
+            transition: text-shadow 0.3s ease;
+        }
+
+        .section-title:hover {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
         }
 
         /* Interactive Showroom Grid Layout */
@@ -374,6 +394,11 @@
             font-weight: 700;
             margin-bottom: 10px;
             letter-spacing: -0.01em;
+            transition: color 0.3s ease;
+        }
+
+        .work-card:hover .work-info h3 {
+            color: var(--accent-cyan);
         }
 
         .work-info p {
@@ -489,6 +514,11 @@
             text-transform: uppercase;
             letter-spacing: -0.04em;
             margin-bottom: 48px;
+            transition: text-shadow 0.3s ease;
+        }
+
+        .contact-title:hover {
+            text-shadow: 0 0 25px rgba(0, 210, 255, 0.2);
         }
 
         .social-links {
@@ -550,7 +580,7 @@
                 padding: 10px 16px;
             }
             nav ul {
-                gap: 20px;
+                gap: 16px;
             }
             .hero-buttons, .social-links {
                 flex-direction: column;
@@ -565,7 +595,7 @@
 </head>
 <body>
 
-    <!-- Floating Navigation Bar -->
+    <!-- Centered Angular Navigation Bar -->
     <header>
         <nav>
             <ul>
