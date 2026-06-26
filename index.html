@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIS | UI Portfolio</title>
-    <!-- Google Fonts: Syne for tech/modern feeling, Plus Jakarta Sans for ultra-clean body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #060608;
-            --card-bg: #0d0d12;
-            --card-hover: #12121a;
+            --bg-color: #04040a;
+            --card-bg: #090912;
+            --card-hover: #101021;
+            --accent-purple: #bd00ff;
+            --accent-cyan: #00f0ff;
             --accent-green: #00ffa3;
-            --accent-blue: #00f0ff;
             --text-main: #ffffff;
-            --text-muted: #71717a;
-            --border-color: rgba(255, 255, 255, 0.04);
-            --border-glow: rgba(0, 240, 255, 0.1);
+            --text-muted: #6b6b7a;
+            --border-color: rgba(255, 255, 255, 0.03);
+            --neon-glow: rgba(189, 0, 255, 0.15);
         }
 
         * {
@@ -36,130 +36,113 @@
             overflow-x: hidden;
         }
 
-        /* Tech Cyber Grid Background */
+        /* Abstract Premium Radial Lighting */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.008) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.008) 1px, transparent 1px);
-            background-size: 50px 50px;
+            top: -10%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.04) 0%, transparent 70%);
             z-index: -1;
             pointer-events: none;
         }
 
-        /* Abstract Glow Orbs */
-        .glow-orb {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.05) 0%, transparent 70%);
-            top: 10%;
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -10%;
             left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(189, 0, 255, 0.04) 0%, transparent 70%);
             z-index: -1;
             pointer-events: none;
         }
 
-        /* Floating Modern Navigation Header */
+        /* Floating Futuristic Navbar */
         header {
             position: fixed;
-            top: 20px;
+            top: 24px;
             left: 50%;
             transform: translateX(-50%);
             width: max-content;
-            background: rgba(13, 13, 18, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-color);
-            padding: 10px 28px;
+            background: rgba(9, 9, 18, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 10px 32px;
             border-radius: 100px;
             z-index: 100;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 32px;
+            gap: 36px;
             align-items: center;
         }
 
         nav ul li a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: -0.01em;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             transition: color 0.2s ease;
         }
 
         nav ul li a:hover, nav ul li a.active {
             color: var(--text-main);
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
         .hire-btn {
-            background: linear-gradient(90deg, var(--accent-blue), #0077ff);
-            color: #000000 !important;
-            padding: 8px 20px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            color: #ffffff !important;
+            padding: 8px 24px;
             border-radius: 100px;
-            font-weight: 700 !important;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .hire-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(189, 0, 255, 0.4);
         }
 
-        /* Hero / Introduction Area */
+        /* Asymmetric Layout Hero Section */
         .hero {
-            min-height: 95vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
             align-items: center;
-            text-align: center;
-            padding: 140px 24px 40px 24px;
-            position: relative;
+            gap: 40px;
+            padding: 120px 24px 60px 24px;
         }
 
-        .avatar-container {
-            position: relative;
-            margin-bottom: 28px;
-        }
-
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 32px; /* Smooth rounded square for modern tech look */
-            object-fit: cover;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transform: rotate(-3deg);
-            transition: transform 0.3s ease;
-        }
-
-        .avatar-container:hover .avatar {
-            transform: rotate(0deg) scale(1.05);
+        .hero-text {
+            text-align: left;
         }
 
         .status-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(0, 255, 163, 0.03);
-            border: 1px solid rgba(0, 255, 163, 0.1);
+            background: rgba(0, 255, 163, 0.02);
+            border: 1px solid rgba(0, 255, 163, 0.12);
             color: var(--accent-green);
             padding: 6px 16px;
             border-radius: 100px;
             font-size: 11px;
             font-weight: 700;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .status-dot {
@@ -167,18 +150,12 @@
             height: 6px;
             background-color: var(--accent-green);
             border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 255, 163, 0.7); }
-            70% { box-shadow: 0 0 0 6px rgba(0, 255, 163, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 255, 163, 0); }
+            box-shadow: 0 0 10px var(--accent-green);
         }
 
         .hero h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(40px, 7.5vw, 76px);
+            font-size: clamp(44px, 6vw, 76px);
             font-weight: 800;
             line-height: 1.0;
             letter-spacing: -0.04em;
@@ -187,21 +164,21 @@
         }
 
         .hero h1 span {
-            background: linear-gradient(135deg, #ffffff 30%, rgba(255,255,255,0.15));
+            background: linear-gradient(135deg, #ffffff 40%, var(--text-muted));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero h1 .highlight {
-            color: transparent;
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
         }
 
         .hero p {
             color: var(--text-muted);
-            font-size: clamp(15px, 1.8vw, 17px);
-            max-width: 620px;
+            font-size: 16px;
+            max-width: 540px;
             line-height: 1.6;
             margin-bottom: 40px;
         }
@@ -212,12 +189,12 @@
         }
 
         .btn {
-            padding: 16px 32px;
-            border-radius: 14px;
+            padding: 16px 36px;
+            border-radius: 16px;
             font-size: 14px;
             font-weight: 700;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .btn-primary {
@@ -226,19 +203,51 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(255,255,255,0.06);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255,255,255,0.1);
         }
 
         .btn-secondary {
-            background: transparent;
+            background: rgba(255, 255, 255, 0.02);
             color: var(--text-main);
             border: 1px solid var(--border-color);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.02);
-            border-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-avatar-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar-glow-wrapper {
+            position: relative;
+            padding: 16px;
+        }
+
+        .avatar-glow-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 40px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .avatar {
+            width: 240px;
+            height: 240px;
+            border-radius: 28px;
+            object-fit: cover;
+            display: block;
         }
 
         /* Section Layout Rules */
@@ -249,29 +258,29 @@
         }
 
         .section-header {
-            text-align: center;
             margin-bottom: 64px;
+            text-align: left;
         }
 
         .section-tag {
-            color: var(--accent-blue);
-            font-size: 12px;
+            color: var(--accent-cyan);
+            font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             margin-bottom: 12px;
-            display: inline-block;
+            display: block;
         }
 
         .section-title {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(32px, 4.5vw, 44px);
+            font-size: clamp(32px, 4.5vw, 48px);
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
         }
 
-        /* Work / Showroom Grid */
+        /* Showroom Masonry Style Grid */
         .works-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -281,23 +290,22 @@
         .work-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
         }
 
         .work-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0, 240, 255, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px var(--border-glow);
+            transform: translateY(-10px);
+            border-color: rgba(189, 0, 255, 0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px var(--neon-glow);
         }
 
         .work-image-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            background: #09090d;
-            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            background: #06060c;
         }
 
         .work-image {
@@ -311,118 +319,119 @@
         }
 
         .work-card:hover .work-image {
-            transform: scale(1.04);
+            transform: scale(1.05);
         }
 
         .work-info {
-            padding: 24px;
-            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.2) 100%);
+            padding: 28px;
+            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.4));
         }
 
         .work-info h3 {
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             letter-spacing: -0.01em;
         }
 
         .work-info p {
             color: var(--text-muted);
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* Refined Premium Pricing Section */
+        /* Modernized Pricing Architecture */
+        .pricing-section {
+            background: radial-gradient(ellipse at center, rgba(16, 16, 33, 0.4) 0%, transparent 70%);
+        }
+
         .pricing-container {
-            max-width: 460px;
+            max-width: 500px;
             margin: 0 auto;
         }
 
         .price-card {
-            background: linear-gradient(180deg, #0e0e14 0%, #08080c 100%);
-            border: 1px solid rgba(0, 240, 255, 0.15);
-            border-radius: 28px;
-            padding: 48px 36px;
+            background: #07070f;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 32px;
+            padding: 56px 40px;
             text-align: center;
             position: relative;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.7);
         }
 
-        .price-badge {
+        .price-card::before {
+            content: '';
             position: absolute;
-            top: -14px;
+            top: 0;
             left: 50%;
             transform: translateX(-50%);
-            background: #ffffff;
-            color: #000000;
-            padding: 4px 16px;
-            border-radius: 100px;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-purple), var(--accent-cyan), transparent);
         }
 
         .price-card h3 {
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-muted);
-            margin-bottom: 20px;
+            letter-spacing: 0.15em;
+            color: var(--accent-cyan);
+            margin-bottom: 24px;
+            font-weight: 700;
         }
 
         .price-amount {
             font-family: 'Syne', sans-serif;
-            font-size: 54px;
+            font-size: 58px;
             font-weight: 800;
-            margin-bottom: 6px;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            margin-bottom: 12px;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #ffffff 40%, #a1a1b2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .price-alternative {
-            color: var(--accent-blue);
-            font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 32px;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 40px;
         }
 
         .price-features {
             list-style: none;
             text-align: left;
             border-top: 1px solid var(--border-color);
-            padding-top: 28px;
-            margin-bottom: 36px;
+            padding-top: 32px;
+            margin-bottom: 44px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
         }
 
         .price-features li {
             font-size: 14px;
-            color: #d1d1d6;
+            color: #c2c2d1;
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            line-height: 1.4;
+            gap: 14px;
+            line-height: 1.5;
         }
 
         .price-features li::before {
-            content: '✓';
-            color: var(--accent-blue);
-            font-weight: 900;
+            content: '✦';
+            color: var(--accent-purple);
+            font-weight: bold;
         }
 
-        .price-features li.alert-item {
-            color: #ff453a;
+        .price-features li.important-rule {
+            color: var(--accent-green);
             font-weight: 600;
         }
 
-        .price-features li.alert-item::before {
+        .price-features li.important-rule::before {
             content: '➔';
-            color: #ff453a;
+            color: var(--accent-green);
         }
 
         /* Contact Section */
@@ -433,7 +442,7 @@
 
         .contact-title {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(36px, 7vw, 72px);
+            font-size: clamp(38px, 6.5vw, 68px);
             font-weight: 800;
             line-height: 1.05;
             text-transform: uppercase;
@@ -451,8 +460,8 @@
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             color: var(--text-main);
-            padding: 16px 36px;
-            border-radius: 14px;
+            padding: 18px 40px;
+            border-radius: 16px;
             font-weight: 700;
             text-decoration: none;
             font-size: 15px;
@@ -460,13 +469,38 @@
         }
 
         .social-btn:hover {
-            border-color: #ffffff;
-            background: #ffffff;
-            color: #000000;
-            transform: translateY(-3px);
+            border-color: rgba(255,255,255,0.1);
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            color: #ffffff;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(189,0,255,0.25);
         }
 
-        /* Responsive Breakpoints */
+        /* Mobile Adjustments */
+        @media (max-width: 850px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 160px;
+            }
+            .hero-text {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero h1 {
+                font-size: 46px;
+            }
+            .hero-avatar-area {
+                order: -1;
+            }
+            .avatar {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
         @media (max-width: 600px) {
             header {
                 width: calc(100% - 40px);
@@ -474,172 +508,150 @@
                 padding: 10px 16px;
             }
             nav ul {
-                gap: 18px;
+                gap: 20px;
             }
-            .hero-buttons {
+            .hero-buttons, .social-links {
                 flex-direction: column;
                 width: 100%;
                 max-width: 280px;
             }
-            .social-links {
-                flex-direction: column;
-                align-items: center;
+            .social-btn, .btn {
                 width: 100%;
-                max-width: 280px;
-                margin: 0 auto;
-            }
-            .social-btn {
-                width: 100%;
-            }
-            .works-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="glow-orb"></div>
-
-    <!-- Floating Navigation -->
     <header>
         <nav>
             <ul>
                 <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#work">Showroom</a></li>
-                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#showroom">Showroom</a></li>
+                <li><a href="#rates">Rates</a></li>
                 <li><a href="#contact" class="hire-btn">Hire</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero / Profile Presentation -->
     <section id="home" class="hero">
-        <div class="avatar-container">
-            <!-- Profil Görseli -->
-            <img src="6dffd3284eb1963c225ab5e0afdd585b.jpg" alt="AIS Avatar" class="avatar">
+        <div class="hero-text">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                Commissions Open
+            </div>
+            <h1><span>AIS DEVS</span><br><span class="gradient-text">INTERFACE DESIGNER</span></h1>
+            <p>Architecting premium stylized UI systems for Roblox Studio. Delivering fully operational, scaled canvas configurations and immersive layouts built for high-end experiences.</p>
+            
+            <div class="hero-buttons">
+                <a href="#showroom" class="btn btn-primary">View Showroom</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
         </div>
         
-        <div class="status-badge">
-            <span class="status-dot"></span>
-            Commissions Open
-        </div>
-        
-        <h1><span>AIS DEVS</span><br><span class="highlight">INTERFACE ARCHITECT</span></h1>
-        <p>Designing high-tier stylized UI/UX spaces for Roblox Studio. Bringing visual interfaces to life across modern layout systems, custom dimensions, and dynamic gaming hubs.</p>
-        
-        <div class="hero-buttons">
-            <a href="#work" class="btn btn-primary">Explore Showroom</a>
-            <a href="#contact" class="btn btn-secondary">Direct Message</a>
+        <div class="hero-avatar-area">
+            <div class="avatar-glow-wrapper">
+                <img src="6dffd3284eb1963c225ab5e0afdd585b.jpg" alt="AIS Custom Profile" class="avatar">
+            </div>
         </div>
     </section>
 
-    <!-- Showroom Grid with completely updated safe paths -->
-    <section id="work">
+    <section id="showroom">
         <div class="section-header">
-            <span class="section-tag">Portfolio</span>
-            <h2 class="section-title">Selected Interfaces</h2>
+            <span class="section-tag">Showroom</span>
+            <h2 class="section-title">Selected Work</h2>
         </div>
         
         <div class="works-grid">
-            <!-- Frame 1: Anime HUD -->
             <div class="work-card">
                 <div class="work-image-wrapper">
-                    <img src="anime%20hud.jpg" alt="Anime Style HUD" class="work-image">
+                    <img src="anime%20hud.jpg" alt="Anime Combat Display" class="work-image">
                 </div>
                 <div class="work-info">
-                    <h3>Anime Combat HUD</h3>
-                    <p>Highly saturated elements built for competitive arena frameworks. Detailed custom health bars, integrated levels, and active side layouts.</p>
+                    <h3>Anime Battle HUD</h3>
+                    <p>Saturated dynamic frame arrays featuring custom layout gauges, skill trackers, and battle action interfaces.</p>
                 </div>
             </div>
 
-            <!-- Frame 2: Banners Layout -->
             <div class="work-card">
                 <div class="work-image-wrapper">
-                    <img src="image.jpg" alt="Inventory Layouts" class="work-image">
+                    <img src="image.jpg" alt="Gradient Banners" class="work-image">
                 </div>
                 <div class="work-info">
-                    <h3>Premium Navigation Bars</h3>
-                    <p>Highly polished gradient asset banners utilizing lighting sparkles, vector headers, and detailed window glows for inventory designs.</p>
+                    <h3>Stylized Core Windows</h3>
+                    <p>High-end vector borders utilizing lighting setups, customized particle bursts, and premium layout backgrounds.</p>
                 </div>
             </div>
 
-            <!-- Frame 3: Realistic Settings -->
             <div class="work-card">
                 <div class="work-image-wrapper">
-                    <img src="realistci%20settings.jpg" alt="Dark Settings Menu" class="work-image">
+                    <img src="realistci%20settings.jpg" alt="Realistic Interface" class="work-image">
                 </div>
                 <div class="work-info">
-                    <h3>Atmospheric Dark Settings</h3>
-                    <p>Clean textured medieval/dark setup including dynamic choice switches, parameter configurations, and background grids.</p>
+                    <h3>Atmospheric Dark Options</h3>
+                    <p>Textured grim interface arrays featuring customized toggles, option structures, and responsive parameters.</p>
                 </div>
             </div>
 
-            <!-- Frame 4: Stud HUD -->
             <div class="work-card">
                 <div class="work-image-wrapper">
                     <img src="stud%20hud.jpg" alt="Simulator Layout" class="work-image">
                 </div>
                 <div class="work-info">
-                    <h3>Vibrant Simulator Framework</h3>
-                    <p>Bright cartoon-styled main game display including modular layout panels, bottom shortcuts, and navigation elements.</p>
+                    <h3>Vibrant Simulator Suite</h3>
+                    <p>High-contrast bright menu arrays incorporating side actions, level progression displays, and custom icons.</p>
                 </div>
             </div>
 
-            <!-- Frame 5: Stud Shop -->
             <div class="work-card">
                 <div class="work-image-wrapper">
-                    <img src="stud%20shop.jpg" alt="Weights Shop Screen" class="work-image">
+                    <img src="stud%20shop.jpg" alt="Store Grid" class="work-image">
                 </div>
                 <div class="work-info">
-                    <h3>Item Store Display</h3>
-                    <p>Clean store structures with organized tier displays, custom buy actions, currency parameters, and distinct grid cards.</p>
+                    <h3>Tiered Inventory Shop</h3>
+                    <p>Clean shop grid components mapped with product cards, multiple transactional systems, and detailed asset titles.</p>
                 </div>
             </div>
 
-            <!-- Frame 6: Combined View Dashboard -->
             <div class="work-card">
                 <div class="work-image-wrapper">
-                    <img src="image_e50fec.jpg" alt="Full View Dashboard" class="work-image">
+                    <img src="image_e50fec.jpg" alt="Dashboard Matrix" class="work-image">
                 </div>
                 <div class="work-info">
-                    <h3>Complete Suite Framework</h3>
-                    <p>Comprehensive dashboard combination containing daily claim views, multi-speed stores, and active rewards matrix panels.</p>
+                    <h3>Comprehensive Core Panel</h3>
+                    <p>Multi-window unified layout dashboard presenting reward matrix setups, item trackers, and global storefronts.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Area with Custom Condition -->
-    <section id="pricing">
-        <div class="section-header">
-            <span class="section-tag">Rates</span>
-            <h2 class="section-title">Commission Deal</h2>
+    <section id="rates" class="pricing-section">
+        <div class="section-header" style="text-align: center;">
+            <span class="section-tag">Pricing</span>
+            <h2 class="section-title">Commission Rates</h2>
         </div>
         
         <div class="pricing-container">
             <div class="price-card">
-                <div class="price-badge">Most Popular</div>
-                <h3>PER FULL FRAME</h3>
-                <div class="price-amount">4,000 R$</div>
-                <div class="price-alternative">or $15 USD</div>
+                <h3>FLAT RATE</h3>
+                <div class="price-amount">2,000 R$</div>
+                <div class="price-alternative">Per Individual Frame</div>
                 
                 <ul class="price-features">
-                    <li class="alert-item">Minimum Order Rule: At least 2 frames required per order</li>
-                    <li>Professional high-tier interface layout design</li>
-                    <li>Slices fully mapped and prepared for direct Roblox Studio importing</li>
-                    <li>Source file configuration (.PSD / Figma) provided upon delivery</li>
-                    <li>Fast response and continuous layout updates</li>
+                    <li class="important-rule">Minimum Requirement: Minimum 2 frames per standard order</li>
+                    <li>Premium custom concept design aligned with your theme</li>
+                    <li>Fully prepared vector slices ready for immediate Roblox Studio integration</li>
+                    <li>Layered high-quality source format configurations delivered (.PSD / Figma)</li>
+                    <li>Direct layout edits and fast adjustments included</li>
                 </ul>
                 
-                <a href="#contact" class="btn btn-primary" style="display: block; text-align: center; border-radius: 12px;">Initiate Deal</a>
+                <a href="#contact" class="btn btn-primary" style="display: block; text-align: center; border-radius: 14px;">Inquire Project</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Panel -->
     <section id="contact" class="contact-section">
-        <h2 class="contact-title">START A NEW<br>PROJECT.</h2>
+        <h2 class="contact-title">LET'S ARCHITECT<br>YOUR EXPERIENCE.</h2>
         
         <div class="social-links">
             <a href="https://discord.com" target="_blank" class="social-btn">Discord</a>
@@ -648,7 +660,7 @@
     </section>
 
     <script>
-        // Smooth active navigation highlighting
+        // Track and highlight active layout sections on scroll
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('nav ul li a:not(.hire-btn)');
 
